@@ -1,0 +1,15 @@
+{
+	"routes": [
+		{
+			"name" : "auth",
+			"endpoint": "/",
+			"template": "index",
+			"async": false
+		}
+	],
+	"data":{
+		"api.login":{
+			"token":"muxi"
+		}
+	}
+}
