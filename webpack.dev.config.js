@@ -5,7 +5,7 @@ var SpritesmithPlugin = require('webpack-spritesmith');
 
 module.exports = {
     entry: {
-
+        'index.js':['./src/index.js']
     },
     output: {
         path: path.join(__dirname, ""),
