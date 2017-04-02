@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-var SpritesmithPlugin = require('webpack-spritesmith');
+// var SpritesmithPlugin = require('webpack-spritesmith');
 
 module.exports = {
     entry: {
@@ -51,21 +51,21 @@ module.exports = {
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
-        new SpritesmithPlugin({
-            src: {
-                cwd: path.resolve(__dirname, 'src/img'),
-                glob: '*.png'
-            },
-            target: {
-                image: path.resolve(__dirname, 'src/spritesmith-generated/sprite.png'),
-                css: path.resolve(__dirname, 'src/spritesmith-generated/sprite.scss')
-            },
-            apiOptions: {
-                cssImageRef: "~sprite.png"
-            },
-            spritesmithOptions:{
-                algorithm:'top-down'
-            }
-        })
+        // new SpritesmithPlugin({
+        //     src: {
+        //         cwd: path.resolve(__dirname, 'src/img'),
+        //         glob: '*.png'
+        //     },
+        //     target: {
+        //         image: path.resolve(__dirname, 'src/spritesmith-generated/sprite.png'),
+        //         css: path.resolve(__dirname, 'src/spritesmith-generated/sprite.scss')
+        //     },
+        //     apiOptions: {
+        //         cssImageRef: '../spritesmith-generated/sprite.png'
+        //     },
+        //     spritesmithOptions:{
+        //         algorithm:'top-down'
+        //     }
+        // })
     ]
 };
