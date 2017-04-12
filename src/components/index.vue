@@ -1,8 +1,8 @@
 <template>
     <div class="background">
-        <div class="test">
+        <div class="test" >
             <transition mode="out-in" name="bounce">
-                <div v-if="page === 1" key="1" class="height">
+                <div v-if="page === 1" key="1" class="height" >
                     <div class="content">
                         2016年3月22日
                         <br> 你在食堂吃了最放肆的一顿
@@ -109,6 +109,8 @@
     </div>
 </template>
 <script>
+import {bus} from '../bus.js'
+
 export default {
     data() {
             return {
@@ -117,9 +119,13 @@ export default {
                 circlel2: 0.1
             };
         },
+        props:['value'],
         methods: {
             nextPage: function () {
+                console.log(this.value)
                 this.page++
+                if(this.page == 6)
+                    bus.$emit("toShare")
             }
         },
         computed: {

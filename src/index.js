@@ -1,8 +1,8 @@
 import Vue from 'vue'
-import Index from './components/index'
+import App from './components/app'
 import './scss/style.scss'
 
 new Vue({
 	el:"#index",
-	render: h =>h(Index)
+	render: h =>h(App)
 })
