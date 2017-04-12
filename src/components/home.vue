@@ -4,6 +4,7 @@
 		<br>It's Home!
 		</div>
 </template>
+
 <script>
 import {bus} from '../bus.js'
 	export default{
