@@ -137,21 +137,21 @@ export default {
             },
             circle2: function () {
                 return {
-                    strokeDashoffset: '-' + this.circlel1 * 314,
+                    strokeDashoffset:  this.circlel2 * 314 * 2,
                     strokeDasharray: this.circlel2 * 314 + ' 314'
                 }
             },
             circle3: function () {
                 var c3OffSet = this.circlel1 + this.circlel2
                 return {
-                    strokeDashoffset: '-' + c3OffSet * 314,
+                    strokeDashoffset: -this.circlel1 * 314,
                     strokeDasharray: this.circlel3 * 314 + ' 314'
                 }
             }
         }
 }
 </script>
-<style lang='sass'>
+<style lang='sass' scoped>
 @import '../spritesmith-generated/sprite.scss';
 @import '../scss/common.scss';
 .des {
@@ -288,9 +288,9 @@ export default {
 }
 
 .test {
-    @include _sprite($background, 1300px);
+    @include _sprite($background,  1300px);
     width: 100%;
-    margin-top: 30px;
+    margin-top: 50px;
     height: 100%;
 }
 

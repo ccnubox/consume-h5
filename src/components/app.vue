@@ -1,7 +1,7 @@
 <template>
-    <div class = "background">
+    <div class="background">
         <transition name="component-fade" mode="out-in">
-            <component v-bind:is="view" :value = "value"></component>
+            <component v-bind:is="view" :value="value"></component>
         </transition>
     </div>
 </template>
@@ -9,13 +9,15 @@
 import Home from './home'
 import Index from './index'
 import Share from './share'
-import {bus} from '../bus.js'
+import {
+    bus
+} from '../bus.js'
 
 export default {
     data() {
             return {
                 view: "home",
-                value:"hahahhah",
+                value: "hahahhah",
             }
         },
         components: {
@@ -23,22 +25,22 @@ export default {
             "index": Index,
             "share": Share
         },
-        created(){
-        	bus.$on('toIndex',this.toIndex)
-        	bus.$on('toShare',this.toShare)
+        created() {
+            bus.$on('toIndex', this.toIndex)
+            bus.$on('toShare', this.toShare)
         },
-        methods:{
-        	toIndex:function(){
-        		this.view = "index"
-        	},
-        	toShare:function(){
-        		this.view = "share"
-        	}
+        methods: {
+            toIndex: function () {
+                this.view = "index";
+            },
+            toShare: function () {
+                this.view = "share"
+            }
         }
 }
 </script>
-<style lang ="sass">
-.component-fade-enter-active{
+<style lang="sass" scoped>
+.component-fade-enter-active {
     animation: bounce-in .5s;
 }
 
@@ -76,8 +78,8 @@ export default {
     }
 }
 
-.background{
-	width: 100%;
+.background {
+    width: 100%;
     height: 100%;
     overflow: hidden;
 }
