@@ -28,7 +28,7 @@
                     <br> 你可能是午食主义者
                     <br>
                     <br>
-                    <span class="strong">麻辣烫</span>窗口是你的最爱
+                    <span class="strong">麻辣烫</span> 窗口是你的最爱
                     <br> 你在此窗口吃了
                     <span class="strong">32</span>顿
                     <br> 共计消费
@@ -137,7 +137,7 @@ export default {
             },
             circle2: function () {
                 return {
-                    strokeDashoffset:  this.circlel2 * 314 * 2,
+                    strokeDashoffset: this.circlel2 * 314 * 2,
                     strokeDasharray: this.circlel2 * 314 + ' 314'
                 }
             },
@@ -199,6 +199,7 @@ export default {
     padding-left: 4%;
     width: 50%;
     box-sizing: border-box;
+    animation: boxRoll 1s ease-in-out;
 }
 
 .piePic {
@@ -216,6 +217,17 @@ export default {
 @keyframes fillup {
     from {
         stroke-dasharray: 0 314;
+    }
+}
+
+@keyframes boxRoll {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
     }
 }
 
@@ -288,7 +300,7 @@ export default {
 }
 
 .test {
-    @include _sprite($background,  1300px);
+    @include _sprite($background, 1300px);
     width: 100%;
     margin-top: 50px;
     height: 100%;
