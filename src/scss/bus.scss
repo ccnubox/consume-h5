@@ -1,0 +1,117 @@
+
+.cls-1 {
+    fill: #5c92fa;
+}
+
+.cls-2 {
+    fill: #b6b6b6;
+}
+
+.cls-3 {
+    fill: #a4957c;
+}
+
+.cls-4 {
+    fill: #c0b7a5;
+}
+
+.cls-5 {
+    fill: #b3daff;
+}
+
+.cls-10,
+.cls-11,
+.cls-6 {
+    fill: none;
+    stroke-linecap: round;
+    stroke-miterlimit: 10;
+}
+
+.cls-6 {
+    stroke: #262626;
+    stroke-width: 2px;
+}
+
+.cls-7 {
+    fill: #262626;
+}
+
+.roll2 {
+    animation: roll2 .3s infinite;
+}
+
+.roll1 {
+    animation: roll1 .3s infinite;
+}
+
+.cls-8 {
+    fill: #ff795f;
+}
+
+.cls-9 {
+    fill: #fbb03b;
+}
+
+.cls-10 {
+    stroke: #b6b6b6;
+}
+
+.cls-11 {
+    stroke: #e3e3e3;
+}
+
+.cls-12 {
+    fill: #98765a;
+}
+
+.cls-13 {
+    fill: #e3e3e3;
+}
+
+.cls-14 {
+    fill: #b2b2b2;
+}
+
+.cls-15 {
+    fill: #dedede;
+}
+
+@keyframes roll2 {
+    0%,
+    100% {
+        cx: 254.58;
+        cy: 113.7;
+    }
+    25% {
+        cx: 259.35;
+        cy: 118.47;
+    }
+    50% {
+        cx: 254.58;
+        cy: 123.24;
+    }
+    75% {
+        cx: 249.81;
+        cy: 118.47;
+    }
+}
+
+@keyframes roll1 {
+    0%,
+    100% {
+        cx: 31.58;
+        cy: 113.7;
+    }
+    25% {
+        cx: 36.58;
+        cy: 118.47;
+    }
+    50% {
+        cx: 31.58;
+        cy: 123.24;
+    }
+    75% {
+        cx: 26.58;
+        cy: 118.47;
+    }
+}

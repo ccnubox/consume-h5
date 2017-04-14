@@ -162,8 +162,8 @@ export default {
 }
 
 .scale {
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 16px;
+    font-weight: bolder;
 }
 
 .pieBox {
@@ -173,12 +173,13 @@ export default {
 
 .data {
     font-size: 0;
+    margin-bottom: 5px;
 }
 
 .cir {
-    width: 11px;
-    height: 11px;
-    border-radius: 5.5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
     display: inline-block;
     vertical-align: middle;
 }
@@ -380,7 +381,7 @@ export default {
     color: #59493f;
     padding-top: 65px;
     margin: 0 auto;
-    width: 55%;
+    width: 58%;
     height: 44%;
 }
 
