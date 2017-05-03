@@ -1,5 +1,5 @@
 <template>
-    <div class="test" v-mousewheel = "changePage">
+    <div class="test" v-mousewheel="changePage">
         <transition mode="out-in" name="bounce">
             <div v-if="page === 1" key="1" class="height">
                 <div class="content">
@@ -138,19 +138,9 @@ export default {
                 } else if (e.deltaY > 0 && this.page < 6) {
                     this.page++;
                 }
+                if (this.page == 6)
+                    bus.$emit("toShare")
             }
-        },
-        mounted() {
-            // var that = this
-            // window.addEventListener('mousewheel', function (e) {
-            //     if (that.waiting) return;
-            //     that.changePage(e)
-            //     that.waiting = true;
-            //     setTimeout(function () {
-            //         that.waiting = false
-            //         console.log("end")
-            //     }, 1500);
-            // });
         },
         computed: {
             circle1: function () {
