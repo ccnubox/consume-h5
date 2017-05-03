@@ -1,5 +1,5 @@
 <template>
-    <div class="test">
+    <div class="test" v-mousewheel = "changePage">
         <transition mode="out-in" name="bounce">
             <div v-if="page === 1" key="1" class="height">
                 <div class="content">
@@ -110,15 +110,19 @@
 import {
     bus
 } from '../bus.js'
+import MouseWheel from '../directives/mousewheel'
 
 export default {
     data() {
             return {
                 page: 1,
-                circlel1: 0.25,
-                circlel2: 0.1,
-                circlel3: 0.65,
+                circlel1: 0.3,
+                circlel2: 0.3,
+                circlel3: 0.4,
             };
+        },
+        directives: {
+            mousewheel: MouseWheel
         },
         props: ['value'],
         methods: {
@@ -127,7 +131,26 @@ export default {
                 this.page++
                     if (this.page == 6)
                         bus.$emit("toShare")
+            },
+            changePage: function (e) {
+                if (e.deltaY < 0 && this.page > 1) {
+                    this.page--;
+                } else if (e.deltaY > 0 && this.page < 6) {
+                    this.page++;
+                }
             }
+        },
+        mounted() {
+            // var that = this
+            // window.addEventListener('mousewheel', function (e) {
+            //     if (that.waiting) return;
+            //     that.changePage(e)
+            //     that.waiting = true;
+            //     setTimeout(function () {
+            //         that.waiting = false
+            //         console.log("end")
+            //     }, 1500);
+            // });
         },
         computed: {
             circle1: function () {

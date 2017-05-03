@@ -16,7 +16,7 @@ import {
 export default {
     data() {
             return {
-                view: "home",
+                view: "index",
                 value: "hahahhah",
             }
         },

@@ -2,7 +2,7 @@
     <div class="homeBg">
         <div class="come"></div>
         <div class="title"></div>
-        <div v-on:click="change" class="button"></div>
+        <div v-on:click="change" class="button" :style="btnAnimation"></div>
         <div class="road">
             <div class="bus" :style="busAnimation">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 283.35 136.81">
@@ -77,6 +77,11 @@ export default {
                 return {
                     animation: this.roll ? 'busroll 2s linear':''
                 }
+            },
+            btnAnimation: function () {
+                return {
+                    animation: this.roll ? 'btnShake .5s linear':''
+                }
             }
         },
         methods: {
@@ -122,6 +127,7 @@ export default {
     width: 90%;
     height: 50px;
     margin: 9% auto;
+    /*animation: btnShake .5s infinite;*/
 }
 
 .road {
@@ -144,6 +150,18 @@ export default {
     }
     100% {
         transform: translateX(200%);
+    }
+}
+
+@keyframes btnShake {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.8);
+    }
+    100% {
+        transform: scale(1);
     }
 }
 </style>
