@@ -6,6 +6,7 @@
     </div>
 </template>
 <script>
+import 'whatwg-fetch'
 import Home from './home'
 import Index from './index'
 import Share from './share'
@@ -26,6 +27,12 @@ export default {
             "share": Share
         },
         created() {
+            fetch('/api/consume/2/').then(res => {
+                return res.json()
+            })
+            .then(res => {
+                this.value = res
+            })
             bus.$on('toIndex', this.toIndex)
             bus.$on('toShare', this.toShare)
         },

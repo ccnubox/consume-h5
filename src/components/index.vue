@@ -3,17 +3,17 @@
         <transition mode="out-in" name="bounce">
             <div v-if="page === 1" key="1" class="height">
                 <div class="content">
-                    2016年3月22日
+                    {{value.CanteenWantonDate}}
                     <br> 你在食堂吃了最放肆的一顿
                     <br> 一共花了
-                    <span class="strong">23</span>元
+                    <span class="strong">{{value.CanteenWantonCost}}</span>元
                     <br>
                     <br> 你最土豪的月份是
-                    <span class="strong">10</span>月
+                    <span class="strong">{{value.CanteenWantonMonth}}</span>月
                     <br> 消费高达
-                    <span class="strong">1539</span>元
+                    <span class="strong">{{value.CanteenWantonMonthCost}}</span>元
                     <br> 竟是最低月份的
-                    <span class="strong">1.2</span>倍
+                    <span class="strong">{{value.CanteenWantonMul}}</span>倍
                 </div>
                 <div class="bottom">
                     <div class="next" v-on:click="nextPage"></div>
@@ -22,17 +22,17 @@
             </div>
             <div v-else-if="page === 2" key="2" class="height">
                 <div class="content">
-                    你在食堂共消费<span class="strong">12333</span>元
+                    你在食堂共消费<span class="strong">{{value.CanteenTotalCost}}</span>元
                     <br>
-                    <span class="strong">午餐</span>消费最高
-                    <br> 你可能是午食主义者
+                    <span class="strong">{{canteen}}餐</span>消费最高
+                    <br> 你可能是{{canteen}}食主义者
                     <br>
                     <br>
-                    <span class="strong">麻辣烫</span> 窗口是你的最爱
+                    <span class="strong">{{value.CanteenFavorite}}</span> 窗口是你的最爱
                     <br> 你在此窗口吃了
-                    <span class="strong">32</span>顿
+                    <span class="strong">{{value.CanteenFavoriteNum}}</span>顿
                     <br> 共计消费
-                    <span class="strong">233</span>元
+                    <span class="strong">{{value.CanteenfavoriteCost}}</span>元
                 </div>
                 <div class="bottom">
                     <div class="next" v-on:click="nextPage"></div>
@@ -41,14 +41,14 @@
             </div>
             <div v-else-if="page === 3" key="3" class="height">
                 <div class="content">
-                    2016年11月11日
+                    {{value.MarketWantonDate}}
                     <br> 你在超市疯狂剁手
                     <br> 挥霍了
-                    <span class="strong">57</span>元
+                    <span class="strong">{{value.MarketWantonCost}}</span>元
                     <br> 共计在超市刷卡
-                    <span class="strong">23</span>次
+                    <span class="strong">{{value.MarketTotalNum}}</span>次
                     <br> 累计消费
-                    <span class="strong">259</span>元
+                    <span class="strong">{{value.MarketTotalCost}}</span>元
                     <br>
                 </div>
                 <div class="bottom">
@@ -70,15 +70,15 @@
                         <div class="dataBox">
                             <div class="data">
                                 <div class="cir blueC"></div>
-                                <div class="des">食堂<span class="scale"> 65%</span></div>
+                                <div class="des">食堂<span class="scale"> {{value.CanteenPercent * 100}}%</span></div>
                             </div>
                             <div class="data">
                                 <div class="cir greenC"></div>
-                                <div class="des">超市<span class="scale"> 25%</span></div>
+                                <div class="des">超市<span class="scale"> {{value.MarketPercent * 100}}%</span></div>
                             </div>
                             <div>
                                 <div class="cir redC"></div>
-                                <div class="des">其他<span class="scale"> 10%</span></div>
+                                <div class="des">其他<span class="scale"> {{value.OtherPercent * 100}}%</span></div>
                             </div>
                         </div>
                     </div>
@@ -90,13 +90,13 @@
             </div>
             <div v-else-if="page === 5" key="5" class="height">
                 <div class="content">
-                    你在近一年<span class="strong">300</span>天内
+                    你在近一年<span class="strong">{{value.DaysNum}}</span>天内
                     <br> 共消费
-                    <span class="strong">12333</span>元
+                    <span class="strong">{{value.TotalCost}}</span>元
                     <br> 超过全校
-                    <span class="strong">85%</span>的人
+                    <span class="strong">{{value.Over * 100}}%</span>的人
                     <br> 全校排名第
-                    <span class="strong">2348</span>名
+                    <span class="strong">{{value.Rank}}</span>名
                 </div>
                 <div class="bottom">
                     <div class="next" v-on:click="nextPage"></div>
@@ -116,18 +116,30 @@ export default {
     data() {
             return {
                 page: 1,
-                circlel1: 0.3,
-                circlel2: 0.3,
-                circlel3: 0.4,
+                circlel1: 0.65,
+                circlel2: 0.25,
+                circlel3: 0.1,
+                canteen:"早",
             };
         },
         directives: {
             mousewheel: MouseWheel
         },
+        created(){
+            this.circlel3 = this.value.CanteenPercent
+            this.circlel1 = this.value.MarketPercent
+            this.circlel2 = this.value.OtherPercent
+            if(this.value.CanteenWhatMan == 1){
+                this.canteen = "早"
+            }else if (this.value.CanteenWhatMan == 2){
+                this.canteen = "午"
+            }else{
+                this.canteen = "晚"
+            }
+        },
         props: ['value'],
         methods: {
             nextPage: function () {
-                console.log(this.value)
                 this.page++
                     if (this.page == 6)
                         bus.$emit("toShare")
