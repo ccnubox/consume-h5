@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "ninja start"
+    "dev": "ninja start",
+    "build": "rm -rf ./dist/* && webpack --config webpack.build.config.js"
   },
   "repository": {
     "type": "git",
@@ -33,7 +34,8 @@
     "stylus-loader": "^3.0.1",
     "webpack": "^1.13.1",
     "webpack-hot-middleware": "^2.13.2",
-    "webpack-spritesmith": "^0.3.3"
+    "webpack-spritesmith": "^0.3.3",
+    "yajb-js": "^0.1.0"
   },
   "devDependencies": {
     "vue": "^2.0.5",

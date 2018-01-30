@@ -10,6 +10,7 @@ import 'whatwg-fetch'
 import Home from './home'
 import Index from './index'
 import Share from './share'
+import YAJB from 'yajb-js'
 import {
     bus
 } from '../bus.js'
@@ -27,7 +28,9 @@ export default {
             "share": Share
         },
         created() {
-            fetch('/api/consume/2/').then(res => {
+            var yajb = new YAJB()
+            var data = JSON.parse(yajb.data)
+            fetch('/api/consume/'+ data + '/').then(res => {
                 return res.json()
             })
             .then(res => {
