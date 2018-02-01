@@ -176,7 +176,7 @@ export default {
         }
 }
 </script>
-<style lang='sass' scoped>
+<style lang ='sass' scoped>
 @import '../spritesmith-generated/sprite.scss';
 @import '../scss/common.scss';
 .des {

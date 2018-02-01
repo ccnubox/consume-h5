@@ -28,8 +28,9 @@ export default {
             "share": Share
         },
         created() {
-            var yajb = new YAJB()
-            var data = JSON.parse(yajb.data)
+            // var yajb = new YAJB()
+            // var data = JSON.parse(yajb.data)
+            var data = '2015210881'
             fetch('/api/consume/'+ data + '/').then(res => {
                 return res.json()
             })

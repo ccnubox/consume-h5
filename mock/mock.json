@@ -1,40 +1,39 @@
 {
-	"routes": [
-		{
-			"name" : "auth",
-			"endpoint": "/",
-			"template": "index",
-			"async": false
-		},
-		{
-			"name": "api.login",
-			"endpoint": "/api/consume/2/",
-			"async":true
-		}
-	],
-	"data":{
-		"api.login":{
-			"CanteenWantonDate": "2016年3月2日",
-    		"CanteenWantonCost":23,
-    		"CanteenWantonMonth":10,
-    		"CanteenWantonMonthCost":1539,
-    		"CanteenWantonMul":1.2,
-    		"CanteenTotalCost":12333,
-    		"CanteenWhatMan":2,
-    		"CanteenFavorite":"麻辣烫",
-    		"CanteenFavoriteNum":32,
-    		"CanteenfavoriteCost":233,
-    		"MarketWantonDate":"2016年11月11日",
-    		"MarketWantonCost":57,
-    		"MarketTotalNum":23,
-    		"MarketTotalCost":259,
-    		"CanteenPercent":0.65,
-   		 	"MarketPercent":0.25,
-    		"OtherPercent":0.10,
-    		"DaysNum":300,
-    		"TotalCost":12333,
-    		"Over":0.85,
-    		"Rank":2348
-		}
-	}
+    "routes": [{
+            "name": "auth",
+            "endpoint": "/",
+            "template": "index",
+            "async": false
+        },
+        {
+            "name": "api.login",
+            "endpoint": "/api/consume/2015210881/",
+            "async": true
+        }
+    ],
+    "data": {
+        "api.login": {
+            "CanteenWantonDate": "2016年3月2日",
+            "CanteenWantonCost": 23,
+            "CanteenWantonMonth": 10,
+            "CanteenWantonMonthCost": 1539,
+            "CanteenWantonMul": 1.2,
+            "CanteenTotalCost": 12333,
+            "CanteenWhatMan": 2,
+            "CanteenFavorite": "麻辣烫",
+            "CanteenFavoriteNum": 32,
+            "CanteenfavoriteCost": 233,
+            "MarketWantonDate": "2016年11月11日",
+            "MarketWantonCost": 57,
+            "MarketTotalNum": 23,
+            "MarketTotalCost": 259,
+            "CanteenPercent": 0.65,
+            "MarketPercent": 0.25,
+            "OtherPercent": 0.10,
+            "DaysNum": 300,
+            "TotalCost": 12333,
+            "Over": 0.85,
+            "Rank": 2348
+        }
+    }
 }
