@@ -2,9 +2,34 @@
 	<div class="shareBg">
 		<div class="boy"></div>
 		<div class="words">喜欢此功能就分享给好友吧~</div>
-		<div class="btn"></div>
+		<div class="btn" v-on:click="change" :style="btnAnimation"></div>
 	</div>
 </template>
+<script>
+export default {
+    data(){
+        return{
+            roll:false
+        }
+    },
+    computed:{
+        btnAnimation: function () {
+            return {
+                animation: this.roll ? 'btnShake .5s linear':''
+            }
+        }
+    },
+    methods: {
+        change: function () {
+            this.roll = true
+            setTimeout(function(){
+                // bus.$emit("toIndex")
+            },1600) 
+        }
+    }
+}
+</script>
+
 <style lang ="sass" scoped>
 @import '../spritesmith-generated/sprite.scss';
 @import '../scss/common.scss';
@@ -36,5 +61,16 @@
     width: 90%;
     height: 50px;
     margin: 9% auto;
+}
+@keyframes btnShake {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.8);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 </style>

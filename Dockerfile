@@ -15,5 +15,5 @@ WORKDIR /usr/src/app/server
 RUN npm install --registry=https://registry.npm.taobao.org
 
 # Bundle app source
-EXPOSE 3000
+EXPOSE 8181
 CMD [ "npm", "start" ]

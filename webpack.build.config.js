@@ -1,16 +1,18 @@
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 // var SpritesmithPlugin = require('webpack-spritesmith');
 
 module.exports = {
     entry: {
-        'index.js':['./src/index.js']
+        'index': ['./src/index.js']
     },
     output: {
         path: path.join(__dirname, "dist"),
         publicPath: '/static/',
-        filename: '[name]'
+        filename: '[name].[chunkhash].js'
     },
     devtool: '#eval-source-map',
     module: {
@@ -51,6 +53,14 @@ module.exports = {
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
+        new HtmlWebpackPlugin({
+            alwaysWriteToDisk: true,
+            filename: 'template/index.html',
+            inject: false,
+            template: './template/index.ejs',
+            chunks: ['index']
+        }),
+        new HtmlWebpackHarddiskPlugin(),
         // new SpritesmithPlugin({
         //     src: {
         //         cwd: path.resolve(__dirname, 'src/img'),
