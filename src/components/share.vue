@@ -24,6 +24,7 @@ export default {
             this.roll = true
             setTimeout(function(){
                 // bus.$emit("toIndex")
+                this.roll = false
             },1600) 
         }
     }
