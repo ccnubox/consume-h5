@@ -7,7 +7,7 @@
         },
         {
             "name": "api.login",
-            "endpoint": "/api/consume/2015210881/",
+            "endpoint": "/api/consumption/2014210001/",
             "async": true
         }
     ],

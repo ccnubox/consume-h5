@@ -6,6 +6,8 @@
 	</div>
 </template>
 <script>
+import YAJB from 'yajb-js'
+
 export default {
     data(){
         return{
@@ -21,9 +23,16 @@ export default {
     },
     methods: {
         change: function () {
+            var yajb = new YAJB() 
+            yajb.send({
+                event:"share",
+                data:{
+                    share:"share"
+                }
+            })
             this.roll = true
             setTimeout(function(){
-                // bus.$emit("toIndex")
+                console.log("hshshshsh")
                 this.roll = false
             },1600) 
         }
