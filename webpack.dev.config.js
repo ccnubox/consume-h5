@@ -12,7 +12,7 @@ module.exports = {
     output: {
         path: path.join(__dirname, "dist"),
         publicPath: '/static/',
-        filename: '[name].[chunkhash].js'
+        filename: '[name].[hash].js'
     },
     devtool: '#eval-source-map',
     module: {
