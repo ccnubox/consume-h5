@@ -70,15 +70,15 @@
                         <div class="dataBox">
                             <div class="data">
                                 <div class="cir blueC"></div>
-                                <div class="des">食堂<span class="scale"> {{value.CanteenPercent * 100}}%</span></div>
+                                <div class="des">食堂<span class="scale"> {{circlel3 * 100}}%</span></div>
                             </div>
                             <div class="data">
                                 <div class="cir greenC"></div>
-                                <div class="des">超市<span class="scale"> {{value.MarketPercent * 100}}%</span></div>
+                                <div class="des">超市<span class="scale"> {{circlel1 * 100}}%</span></div>
                             </div>
                             <div>
                                 <div class="cir redC"></div>
-                                <div class="des">其他<span class="scale"> {{value.OtherPercent * 100}}%</span></div>
+                                <div class="des">其他<span class="scale"> {{circlel2 * 100}}%</span></div>
                             </div>
                         </div>
                     </div>
@@ -126,9 +126,10 @@ export default {
             mousewheel: MouseWheel
         },
         created(){
-            this.circlel3 = this.value.CanteenPercent
-            this.circlel1 = this.value.MarketPercent
-            this.circlel2 = this.value.OtherPercent
+            this.circlel3 = this.value.CanteenPercent.toFixed(3)
+            this.circlel1 = this.value.MarketPercent.toFixed(3)
+            this.circlel2 = this.value.OtherPercent.toFixed(3)
+            console.log(this.circlel3)
             if(this.value.CanteenWhatMan == 1){
                 this.canteen = "早"
             }else if (this.value.CanteenWhatMan == 2){
