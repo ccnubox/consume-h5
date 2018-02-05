@@ -16,6 +16,7 @@ module.exports = {
     },
     devtool: '#eval-source-map',
     module: {
+        noParse: /vue.runtime.min/,
         loaders: [{
             test: /\.vue$/,
             loader: 'vue-loader'
@@ -43,7 +44,10 @@ module.exports = {
             test: /\.png$/,
             loaders: [
                 'file-loader?name=i/[hash].[ext]'
-            ]
+            ],
+            alias: {
+                'vue': path.resolve(__dirname, 'node_modules/vue/dist/vue.runtime.min'),
+            }
         }]
     },
     resolve: {
@@ -51,7 +55,6 @@ module.exports = {
         modules: ["node_modules", "spritesmith-generated"]
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
         new HtmlWebpackPlugin({
             alwaysWriteToDisk: true,
@@ -61,6 +64,12 @@ module.exports = {
             chunks: ['index']
         }),
         new HtmlWebpackHarddiskPlugin(),
+        new webpack.optimize.UglifyJsPlugin({
+            mangle: true,
+            compress: {
+                warnings: false,
+            },
+        }),
         // new SpritesmithPlugin({
         //     src: {
         //         cwd: path.resolve(__dirname, 'src/img'),

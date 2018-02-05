@@ -24,15 +24,9 @@ export default {
     methods: {
         change: function () {
             var yajb = new YAJB() 
-            yajb.send({
-                event:"share",
-                data:{
-                    share:"share"
-                }
-            })
+            yajb.send("share","data")
             this.roll = true
             setTimeout(function(){
-                console.log("hshshshsh")
                 this.roll = false
             },1600) 
         }
