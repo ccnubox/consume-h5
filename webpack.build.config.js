@@ -28,6 +28,9 @@ module.exports = {
                 path.resolve(__dirname, "src"),
             ],
         }, {
+            test: /\.css$/,
+            loader: ExtractTextPlugin.extract("style-loader", "css-loader")
+        }, {
             test: /\.scss$/,
             loaders: ["style", "css", "sass"]
         }, {
@@ -52,7 +55,10 @@ module.exports = {
     },
     resolve: {
         extensions: ['', '.js', '.scss', '.vue'],
-        modules: ["node_modules", "spritesmith-generated"]
+        modules: ["node_modules", "spritesmith-generated"],
+        alias: {
+            'vue$': 'vue/dist/vue.runtime.min.js'
+        }
     },
     plugins: [
         new webpack.NoErrorsPlugin(),
@@ -62,6 +68,9 @@ module.exports = {
             inject: false,
             template: './template/index.ejs',
             chunks: ['index']
+        }),
+        new ExtractTextPlugin({
+            filename: 'css/[name].css'
         }),
         new HtmlWebpackHarddiskPlugin(),
         new webpack.optimize.UglifyJsPlugin({
