@@ -1,7 +1,7 @@
 <template>
 	<div class="shareBg">
 		<div class="boy"></div>
-		<div class="words">喜欢此功能就分享我们的匣子给好友吧~</div>
+		<div class="words">喜欢此功能就点击右上角分享匣子给好友吧~</div>
 		<div class="btn" v-on:click="change" :style="btnAnimation"></div>
 	</div>
 </template>

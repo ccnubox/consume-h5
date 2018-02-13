@@ -39,7 +39,7 @@ export default {
                 data = window.sid
             }else{
                 console.log("non-Client")
-                data = '2014210001'
+                window.location = 'https://ccnubox.muxixyz.com/'
             }
             fetch('/api/consumption/'+ data + '/').then(res => {
                 return res.json()
