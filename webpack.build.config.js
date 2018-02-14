@@ -1,19 +1,22 @@
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 // var SpritesmithPlugin = require('webpack-spritesmith');
 
 module.exports = {
     entry: {
-        'index.js':['./src/index.js']
+        'index': ['./src/index.js']
     },
     output: {
         path: path.join(__dirname, "dist"),
         publicPath: '/static/',
-        filename: '[name]'
+        filename: '[name].[hash].js'
     },
     devtool: '#eval-source-map',
     module: {
+        noParse: /vue.runtime.min/,
         loaders: [{
             test: /\.vue$/,
             loader: 'vue-loader'
@@ -24,6 +27,9 @@ module.exports = {
             include: [
                 path.resolve(__dirname, "src"),
             ],
+        }, {
+            test: /\.css$/,
+            loader: ExtractTextPlugin.extract("style-loader", "css-loader")
         }, {
             test: /\.scss$/,
             loaders: ["style", "css", "sass"]
@@ -41,16 +47,38 @@ module.exports = {
             test: /\.png$/,
             loaders: [
                 'file-loader?name=i/[hash].[ext]'
-            ]
+            ],
+            alias: {
+                'vue': path.resolve(__dirname, 'node_modules/vue/dist/vue.runtime.min'),
+            }
         }]
     },
     resolve: {
         extensions: ['', '.js', '.scss', '.vue'],
-        modules: ["node_modules", "spritesmith-generated"]
+        modules: ["node_modules", "spritesmith-generated"],
+        alias: {
+            'vue$': 'vue/dist/vue.runtime.min.js'
+        }
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
+        new HtmlWebpackPlugin({
+            alwaysWriteToDisk: true,
+            filename: 'template/index.html',
+            inject: false,
+            template: './template/index.ejs',
+            chunks: ['index']
+        }),
+        new ExtractTextPlugin({
+            filename: 'css/[name].css'
+        }),
+        new HtmlWebpackHarddiskPlugin(),
+        new webpack.optimize.UglifyJsPlugin({
+            mangle: true,
+            compress: {
+                warnings: false,
+            },
+        }),
         // new SpritesmithPlugin({
         //     src: {
         //         cwd: path.resolve(__dirname, 'src/img'),

@@ -28,9 +28,23 @@ export default {
             "share": Share
         },
         created() {
-            var yajb = new YAJB()
-            var data = JSON.parse(yajb.data)
-            fetch('/api/consume/'+ data + '/').then(res => {
+            var u = navigator.userAgent;
+            var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+            var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+            var data = null;
+            if(isAndroid){
+                var yajb = new YAJB()
+                data = JSON.parse(yajb.data)
+            }else if(isiOS){
+                data = window.sid
+            }else{
+                console.log("non-Client")
+                window.location = 'https://ccnubox.muxixyz.com/'
+            }
+            if(!data){
+                window.location = 'https://ccnubox.muxixyz.com/'
+            }
+            fetch('/api/consumption/'+ data + '/').then(res => {
                 return res.json()
             })
             .then(res => {
