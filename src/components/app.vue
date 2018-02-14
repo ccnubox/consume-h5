@@ -24,7 +24,7 @@ export default {
             return {
                 view: "home",
                 value: "hahahhah",
-                modal: ""
+                modal: false
             }
         },
         components: {
