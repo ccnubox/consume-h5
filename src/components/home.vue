@@ -3,6 +3,7 @@
         <div class="come"></div>
         <div class="title"></div>
         <div v-on:click="change" class="button" :style="btnAnimation"></div>
+        <div class="tip">提醒匣客们：因近期教务系统故障，查成绩和课程表等功能暂时无法使用 QAQ 匣子将与你一起等待学校教务系统的恢复</div>
         <div class="road">
             <div class="bus" :style="busAnimation">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 283.35 136.81">
@@ -163,5 +164,13 @@ export default {
     100% {
         transform: scale(1);
     }
+}
+
+.tip {
+    font-size: 14px;
+    text-align: center;
+    width: 200px;
+    margin: 0 auto;
+    color: #dc704c;
 }
 </style>
