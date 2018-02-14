@@ -78,11 +78,7 @@
                             </div>
                             <div>
                                 <div class="cir redC"></div>
-<<<<<<< HEAD
                                 <div class="des">其他<span class="scale"> {{new Number(value.OtherPercent * 100).toFixed(1)}}%</span></div>
-=======
-                                <div class="des">其他<span class="scale"> {{circlel2 * 100}}%</span></div>
->>>>>>> upstream/master
                             </div>
                         </div>
                     </div>
