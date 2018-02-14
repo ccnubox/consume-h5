@@ -54,9 +54,6 @@ export default {
                 window.location = 'https://ccnubox.muxixyz.com/'
             }
 
-            if(!data){
-                window.location = 'https://ccnubox.muxixyz.com/'
-            }
             fetch('/api/consumption/'+ data + '/').then(res => {
                 return res.json()
             })
