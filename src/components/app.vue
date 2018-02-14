@@ -43,17 +43,13 @@ export default {
                 data = JSON.parse(yajb.data)
             }else if(isiOS){
                 if (window.sid === undefined) {
-                    window.location = 'https://ccnubox.muxixyz.com/'
+                   window.location = 'https://ccnubox.muxixyz.com/'
                 } else if (window.sid === ""){
                     this.modal = true
                 } else {
                     data = window.sid
                 }
             }
-            // else{
-            //     console.log("non-Client")
-            //     window.location = 'https://ccnubox.muxixyz.com/'
-            // }
 
             fetch('/api/consumption/'+ data + '/').then(res => {
                 return res.json()
