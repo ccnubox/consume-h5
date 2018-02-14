@@ -13,7 +13,7 @@
                     <br> 消费高达
                     <span class="strong">{{value.CanteenWantonMonthCost}}</span>元
                     <br> 竟是最低月份的
-                    <span class="strong">{{value.CanteenWantonMul}}</span>倍
+                    <span class="strong">{{new Number(value.CanteenWantonMul).toFixed(2)}}</span>倍
                 </div>
                 <div class="bottom">
                     <div class="next" v-on:click="nextPage"></div>
@@ -70,11 +70,11 @@
                         <div class="dataBox">
                             <div class="data">
                                 <div class="cir blueC"></div>
-                                <div class="des">食堂<span class="scale"> {{circlel3 * 100}}%</span></div>
+                                <div class="des">食堂<span class="scale"> {{new Number(circlel3 * 100).toFixed(1)}}%</span></div>
                             </div>
                             <div class="data">
                                 <div class="cir greenC"></div>
-                                <div class="des">超市<span class="scale"> {{circlel1 * 100}}%</span></div>
+                                <div class="des">超市<span class="scale"> {{new Number(circlel1 * 100).toFixed(1)}}%</span></div>
                             </div>
                             <div>
                                 <div class="cir redC"></div>
