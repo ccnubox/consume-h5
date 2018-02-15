@@ -6,7 +6,7 @@
         <div v-if = "this.modal" class="mask">
         <div class="tip">
             <div class="word">你还没登录噢~<br>请在成绩查询或课表处登录</div></div>
-    </div>
+        </div>
     </div>
 </template>
 <script>
@@ -43,14 +43,14 @@ export default {
                 data = JSON.parse(yajb.data)
             }else if(isiOS){
                 if (window.sid === undefined) {
-                   window.location = 'https://ccnubox.muxixyz.com/'
+                    window.location = 'https://ccnubox.muxixyz.com/'
                 } else if (window.sid === ""){
                     this.modal = true
                 } else {
                     data = window.sid
                 }
-            } else {
-                console.log('No-Client')
+            } else{
+                console.log("non-Client")
                 window.location = 'https://ccnubox.muxixyz.com/'
             }
 
