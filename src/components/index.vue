@@ -94,7 +94,7 @@
                     <br> 共消费
                     <span class="strong">{{value.TotalCost}}</span>元
                     <br> 超过全校
-                    <span class="strong">{{new Number((17061 - value.Rank)/17061 * 100).toFixed(2)}}%</span>的人
+                    <span class="strong">{{new Number((17397 - value.Rank)/17397 * 100).toFixed(2)}}%</span>的人
                     <br> 全校排名第
                     <span class="strong">{{value.Rank}}</span>名
                 </div>
